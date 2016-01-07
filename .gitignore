@@ -1,6 +1,7 @@
 /node_modules/
 /sources/
 /src/
-gulpfiles.js
+gulpfile.js
 jacina.sublime-project
+jacina.sublime-workspace
 package.json
