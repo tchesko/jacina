@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'NewCicle-Fina';
+  src: url('NewCicle-Fina.woff') format('woff'),
+       url('NewCicle-Fina.ttf') format('truetype'),
+       url('NewCicle-Fina.svg#NewCicle-Fina') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'New_Cicle_Fina';
+  src: url('New_Cicle_Fina.eot');
+  src: url('New_Cicle_Fina.eot?#iefix') format('embedded-opentype'),
+       url('New_Cicle_Fina.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

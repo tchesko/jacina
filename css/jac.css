@@ -52,16 +52,214 @@ table {
   border-spacing: 0;
 }
 
-body {
-  background-color: #FA3215;
-  color: #FF9900;
-  border: 1px solid #000;
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
 }
 
-a {
-  font-family: Verdana, Arial, sans-serif;
-  text-decoration: none;
-  color: #000;
+.cf:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1;
+}
+
+/* 
+header,
+main,
+footer{
+	margin:20px auto;
+	padding:20px 50px;
+	box-sizing: border-box;
+	@include phone{
+		width: $phone-width;
+	}
+	@include tablet {
+	width: $tablet-width;
+	}
+
+	@include desktop {
+	width: $desktop-width;
+	}
+}
+
+main{
+	@include tablet {
+		padding-left: $tablet-width/2;
+	}
+
+	@include desktop {
+		padding-left: $desktop-width/2;
+	}
+}
+
+
+.container {
+	@include tablet {
+		padding: 70px 50px 50px;
+	}
+
+	@include desktop {
+		padding: 96px 0px 20px;
+	}
+ */
+/*
+	The Frame effect 
+	From : http://csswizardry.com/2010/12/simplified-page-borders-in-pure-css/
+
+ */
+html:before, html:after, body:before, body:after {
+  content: "";
+  background: #242625;
+  position: fixed;
+  display: block;
+  z-index: 5;
+}
+
+/* ...and position them! */
+html:before {
+  height: 10px;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+html:after {
+  width: 10px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+body:before {
+  height: 10px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+body:after {
+  width: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/*
+
+	LAYOUT
+
+*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 50px 30px 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 70px 50px 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 96px 0px 20px;
+  }
+}
+
+header,
+main,
+footer {
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  header,
+  main,
+  footer {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  header,
+  main,
+  footer {
+    width: 760px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header,
+  main,
+  footer {
+    width: 1010px;
+  }
+}
+
+header {
+  padding-bottom: 20px;
+  min-height: 136px;
+}
+
+main {
+  padding-top: 66px;
+  padding-bottom: 66px;
+}
+
+.logo {
+  width: 122px;
+  background: rgba(253, 253, 251, 0.75);
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    position: fixed;
+  }
+}
+
+.logo img {
+  max-width: 100%;
+}
+
+/*
+
+MODULES
+
+ */
+nav {
+  float: right;
+  width: 166px;
 }
 
 nav ul {
@@ -70,9 +268,155 @@ nav ul {
 
 nav li {
   padding-left: 0;
-  float: left;
+  margin-bottom: 7px;
 }
 
 nav a {
   display: block;
+}
+
+.social {
+  float: right;
+}
+
+.social li {
+  float: left;
+  margin-left: 15px;
+}
+
+.social a {
+  display: block;
+  font-size: 1.25em;
+}
+
+.thumbnails {
+  text-align: left;
+}
+
+.thumbnails li {
+  float: left;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.thumbnails li img {
+  max-width: 100%;
+}
+
+.thumbnails a {
+  display: block;
+}
+
+.thumbnails a :hover {
+  opacity: 0.1;
+}
+
+@media (max-width: 767px) {
+  .thumbnails__img {
+    width: 100%;
+  }
+  .thumbnails__img img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .thumbnails__img {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .thumbnails__img {
+    width: 25%;
+  }
+}
+
+/*
+
+	typography
+
+ */
+@font-face {
+  font-family: 'NewCicle-Fina';
+  src: url("../fonts/newcicle/NewCicle-Fina.eot");
+  src: url("../fonts/newcicle/NewCicle-Fina.eot?#iefix") format("embedded-opentype"), url("../fonts/newcicle/NewCicle-Fina.woff") format("woff"), url("../fonts/newcicle/NewCicle-Fina.woff2") format("woff2"), url("../fonts/newcicle/NewCicle-Fina.ttf") format("truetype"), url("../fonts/newcicle/NewCicle-Fina.svg#NewCicle-Semi") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font: normal 18px/1.5 "Crimson Text", Arial, sans-serif;
+  background-color: #FDFDFB;
+  color: #242625;
+  letter-spacing: 0;
+}
+
+main {
+  text-align: right;
+  border-top: 1px solid #000000;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  font-family: "Crimson Text", Arial, sans-serif;
+  color: #000000;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #858585;
+}
+
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.875em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.125em;
+  line-height: 48px;
+  font-weight: normal;
+  letter-spacing: 0.16em;
+}
+
+h3 {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: normal;
+  letter-spacing: 0.16em;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.active {
+  color: #858585;
+}
+
+nav a {
+  font-family: "NewCicle-Fina", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+span {
+  color: #545454;
+  font-family: arial, sans-serif;
+  font-size: small;
+  line-height: 18.2px;
 }

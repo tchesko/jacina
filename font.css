@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'NewCicle-Semi';
+  src: url('NewCicle-Semi.woff') format('woff'),
+       url('NewCicle-Semi.ttf') format('truetype'),
+       url('NewCicle-Semi.svg#NewCicle-Semi') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'New_Cicle_Semi';
+  src: url('New_Cicle_Semi.eot');
+  src: url('New_Cicle_Semi.eot?#iefix') format('embedded-opentype'),
+       url('New_Cicle_Semi.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
